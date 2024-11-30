@@ -1,0 +1,21 @@
+mvn spring-boot:run
+
+
+mvn test
+
+mvn -Dtest=UserApiIntegrationTest test
+mvn -Dtest=UserApiIntegrationTest#shouldReturnAllSimpleUsers_whenGettingAllUsers test
+mvn -Dtest=UserApiIntegrationTest#shouldPersistUser_whenCreatingUser test
+
+lab1 zapytania:
+jdbc url: jdbc:h2:file:~/test
+
+
+SELECT * FROM address;
+SELECT * FROM doctor;
+SELECT * FROM patient;
+SELECT * FROM visit;
+SELECT * FROM medical_treatment;
+SELECT * FROM visit_treatment;
+
+

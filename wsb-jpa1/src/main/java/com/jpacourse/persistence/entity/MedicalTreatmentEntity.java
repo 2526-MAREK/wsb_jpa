@@ -9,7 +9,9 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import java.util.Set;
 
 @Entity
 @Table(name = "MEDICAL_TREATMENT")
@@ -25,6 +27,9 @@ public class MedicalTreatmentEntity {
 	@Enumerated(EnumType.STRING)
 	private TreatmentType type;
 
+	@ManyToMany(mappedBy = "treatments") // Powiązanie dwustronne z VisitEntity
+    private Set<VisitEntity> visits
+	;
 	public Long getId() {
 		return id;
 	}
@@ -49,4 +54,12 @@ public class MedicalTreatmentEntity {
 		this.type = type;
 	}
 
+	public Set<VisitEntity> getVisits() {
+        return visits;
+    }
+
+    public void setVisits(Set<VisitEntity> visits) {
+        this.visits = visits;
+    }
+	
 }

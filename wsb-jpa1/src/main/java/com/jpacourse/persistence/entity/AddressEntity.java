@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,6 +22,12 @@ public class AddressEntity {
 	private String addressLine2;
 
 	private String postalCode;
+
+	 @OneToOne(mappedBy = "address") // Relacja dwustronna z DoctorEntity
+    private DoctorEntity doctor;
+
+    @OneToOne(mappedBy = "address") // Relacja jednostronna z PatientEntity
+    private PatientEntity patient;
 
 	public Long getId() {
 		return id;

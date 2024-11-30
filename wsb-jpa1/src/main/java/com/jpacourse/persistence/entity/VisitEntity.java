@@ -7,8 +7,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
+import java.util.Set;
 @Entity
 @Table(name = "VISIT")
 public class VisitEntity {
@@ -21,6 +25,22 @@ public class VisitEntity {
 
 	@Column(nullable = false)
 	private LocalDateTime time;
+
+	@ManyToOne
+    @JoinColumn(name = "doctor_id", nullable = false) // Relacja jednostronna z DoctorEntity
+    private DoctorEntity doctor;
+
+    @ManyToOne
+    @JoinColumn(name = "patient_id", nullable = false) // Relacja jednostronna z PatientEntity
+    private PatientEntity patient;
+
+    @ManyToMany
+    @JoinTable(
+        name = "visit_treatment",
+        joinColumns = @JoinColumn(name = "visit_id"),
+        inverseJoinColumns = @JoinColumn(name = "treatment_id")
+    )
+    private Set<MedicalTreatmentEntity> treatments;
 
 	public Long getId() {
 		return id;
@@ -46,4 +66,27 @@ public class VisitEntity {
 		this.time = time;
 	}
 
+	public DoctorEntity getDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(DoctorEntity doctor) {
+        this.doctor = doctor;
+    }
+
+    public PatientEntity getPatient() {
+        return patient;
+    }
+
+    public void setPatient(PatientEntity patient) {
+        this.patient = patient;
+    }
+
+    public Set<MedicalTreatmentEntity> getTreatments() {
+        return treatments;
+    }
+
+    public void setTreatments(Set<MedicalTreatmentEntity> treatments) {
+        this.treatments = treatments;
+    }
 }
