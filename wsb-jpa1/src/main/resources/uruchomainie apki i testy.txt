@@ -3,9 +3,7 @@ mvn spring-boot:run
 
 mvn test
 
-mvn -Dtest=UserApiIntegrationTest test
-mvn -Dtest=UserApiIntegrationTest#shouldReturnAllSimpleUsers_whenGettingAllUsers test
-mvn -Dtest=UserApiIntegrationTest#shouldPersistUser_whenCreatingUser test
+mvn -Dtest=PatientServiceTest test
 
 lab1 zapytania:
 jdbc url: jdbc:h2:file:~/test

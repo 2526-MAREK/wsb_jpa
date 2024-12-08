@@ -31,7 +31,7 @@ public class PatientEntity {
 	@Column(nullable = false)
 	private boolean isInsured;
 
-	@OneToMany(mappedBy = "patient", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "patient")
 	private List<VisitEntity> visits;
 
 
