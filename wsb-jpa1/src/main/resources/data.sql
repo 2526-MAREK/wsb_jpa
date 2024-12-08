@@ -11,10 +11,10 @@ VALUES
 (2, 'Anna', 'Nowak', '987654321', 'anna.nowak@example.com', 'DOC002', 'NEUROLOGIST', 2);
 
 -- Wstawianie danych do tabeli Patient
-INSERT INTO patient (id, first_name, last_name, telephone_number, email, patient_number, date_of_birth, address_id)
+INSERT INTO patient (id, first_name, last_name, telephone_number, email, patient_number, date_of_birth, address_id, is_insured) 
 VALUES 
-(1, 'Marek', 'Zieliński', '111222333', 'marek.zielinski@example.com', 'PAT001', '1985-05-15', 1),
-(2, 'Ewa', 'Wiśniewska', '444555666', 'ewa.wisniewska@example.com', 'PAT002', '1990-07-20', 2);
+(1, 'Marek', 'Zieliński', '111222333', 'marek.zielinski@example.com', 'PAT001', '1985-05-15', 1, true),
+(2, 'Ewa', 'Wiśniewska', '444555666', 'ewa.wisniewska@example.com', 'PAT002', '1990-07-20', 2, false);
 
 -- Wstawianie danych do tabeli MedicalTreatment
 INSERT INTO medical_treatment (id, description, type)

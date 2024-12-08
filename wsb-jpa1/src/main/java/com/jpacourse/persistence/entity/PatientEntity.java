@@ -1,6 +1,7 @@
 package com.jpacourse.persistence.entity;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.persistence.*;
 @Entity
@@ -27,6 +28,15 @@ public class PatientEntity {
 
 	@Column(nullable = false)
 	private LocalDate dateOfBirth;
+	@Column(nullable = false)
+	private boolean isInsured;
+
+	@OneToMany(mappedBy = "patient", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<VisitEntity> visits;
+
+
+
+    
 
 	@OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id", referencedColumnName = "id") // Jednostronna relacja do AddressEntity
@@ -95,5 +105,27 @@ public class PatientEntity {
     public void setAddress(AddressEntity address) {
         this.address = address;
 		
+    }
+
+	public boolean isInsured() {
+		return isInsured;
+	}
+	
+	public void setInsured(boolean insured) {
+		isInsured = insured;
+	}
+
+	public List<VisitEntity> getVisits() {
+
+        return visits;
+
+    }
+
+
+
+    public void setVisits(List<VisitEntity> visits) {
+
+        this.visits = visits;
+
     }
 }
