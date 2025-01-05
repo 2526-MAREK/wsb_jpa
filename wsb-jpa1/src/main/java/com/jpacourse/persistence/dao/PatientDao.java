@@ -6,6 +6,6 @@ import com.jpacourse.persistence.entity.PatientEntity;
 
 public interface PatientDao extends Dao<PatientEntity, Long> {
     List<PatientEntity> findByLastName(String lastName);
-
+    List<PatientEntity> findPatientsWithMoreThanXVisits(int visitCount);
 }
 

@@ -19,5 +19,15 @@ public List<PatientEntity> findByLastName(String lastName) {
                         .getResultList();
 }
 
+@Override
+public List<PatientEntity> findPatientsWithMoreThanXVisits(int visitCount) {
+    return entityManager.createQuery(
+            "SELECT p FROM PatientEntity p WHERE SIZE(p.visits) > :visitCount", 
+            PatientEntity.class)
+            .setParameter("visitCount", visitCount)
+            .getResultList();
+}
+
+
 
 }

@@ -29,4 +29,15 @@ void testFindByLastName() {
     assertEquals(1, patients.size());
     assertEquals("John", patients.get(0).getFirstName());
 }
+
+@Test
+void testFindPatientsWithMoreThanXVisits() {
+    // Wykonanie metody findPatientsWithMoreThanXVisits
+    List<PatientEntity> patients = patientDao.findPatientsWithMoreThanXVisits(2);
+
+    // Weryfikacja wyników
+    assertEquals(1, patients.size());
+    assertEquals("John", patients.get(0).getFirstName());
+    assertEquals("Doe", patients.get(0).getLastName());
+}
 }

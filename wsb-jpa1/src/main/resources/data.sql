@@ -28,10 +28,12 @@ VALUES
 
 
 
-INSERT INTO visit (id, description, time, doctor_id, patient_id)
-VALUES 
-(1, 'Regular Checkup', '2024-11-30T10:00:00', 1, 1),
-(2, 'Follow-up', '2024-12-01T12:00:00', 1, 1);
+INSERT INTO visit (id, description, time, doctor_id, patient_id) VALUES
+(1, 'Check-up', '2023-01-15 10:00:00', 1, 1),
+(2, 'Follow-up', '2023-03-10 12:00:00', 1, 1),
+(3, 'Consultation', '2023-04-05 14:00:00', 2, 2),
+(4, 'Vaccination', '2023-06-20 09:00:00', 1, 2),
+(5, 'Dental cleaning', '2023-07-15 11:00:00', 2, 2);
 
 
 INSERT INTO medical_treatment (id, description, type)
